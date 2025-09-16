@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git branch: 'main', credentialsId: 'github-token', url: 'https://github.com/tanvirmulla11/ecommerce-microservices.git'
+                git branch: 'main', credentialsId: 'github-token', url: 'https://github.com/avinash2354/ecmp-apps-uat.git'
             }
         }
 
