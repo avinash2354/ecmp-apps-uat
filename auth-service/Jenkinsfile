@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git branch: 'main', credentialsId: 'ecmp-apps-uat', url: 'https://github.com/avinash2354/ecmp-apps-uat.git'
+                git branch: 'master', credentialsId: 'ecmp-apps-uat', url: 'https://github.com/avinash2354/ecmp-apps-uat.git'
             }
         }
 
