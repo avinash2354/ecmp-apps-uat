@@ -25,6 +25,7 @@ pipeline {
             steps {
                 echo "🔨 Building Docker image for ${SERVICE_NAME}..."
                 sh "docker build -t ${DOCKER_IMAGE} ./${SERVICE_NAME}"
+                docker build -t myapp:latest ./app
             }
         }
 
