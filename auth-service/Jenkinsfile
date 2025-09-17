@@ -21,6 +21,7 @@ pipeline {
                     set -e
                     echo "🔨 Building Docker image..."
                     docker build --pull --no-cache -t $DOCKER_IMAGE ./$SERVICE_NAME
+                    docker build -t $DOCKER_IMAGE:latest ./$SERVICE_NAME
         '''
             }
         }
