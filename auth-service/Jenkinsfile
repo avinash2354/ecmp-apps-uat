@@ -2,19 +2,45 @@ pipeline {
     agent any
 
     environment {
-        SERVICE_NAME = 'auth-service' // ⬅ Change to product-service or order-service as needed
-        DOCKER_USERNAME = 'avinash8476'
-        IMAGE_TAG = "${BUILD_NUMBER}"
-        DOCKER_IMAGE = "${DOCKER_USERNAME}/${SERVICE_NAME}:${IMAGE_TAG}"
+        // Set your microservice name here: 'auth-service', 'product-service', or 'order-service'
+        SERVICE_NAME     = 'auth-service'
+        DOCKER_USERNAME  = 'avinash8476'
+        IMAGE_TAG        = "${BUILD_NUMBER}"
+        DOCKER_IMAGE     = "${DOCKER_USERNAME}/${SERVICE_NAME}:${IMAGE_TAG}"
     }
 
     stages {
-        stage('Clone Repo') {
+        stage('Clone Repository') {
             steps {
-                git branch: 'main', credentialsId: 'ecmp-apps-uat', url: 'https://github.com/avinash2354/ecmp-apps-uat.git'
+                echo "📥 Cloning repository branch 'main'..."
+                git(
+                    branch: 'main',
+                    credentialsId: 'ecmp-apps-uat',
+                    url: 'https://github.com/avinash2354/ecmp-apps-uat.git'
+                )
             }
         }
 
-                echo "✅ Docker image built: Sucess"
+        stage('Build Docker Image') {
+            steps {
+                echo "🔨 Building Docker image for ${SERVICE_NAME}..."
+                sh "docker build -t ${DOCKER_IMAGE} ./${SERVICE_NAME}"
             }
         }
+
+        stage('Push to Docker Hub') {
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub-pass',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+                )]) {
+                    echo "🔐 Logging in to Docker Hub..."
+                    sh 'echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin'
+                    echo "🚀 Pushing Docker image ${DOCKER_IMAGE}..."
+                    sh "docker push ${DOCKER_IMAGE}"
+                }
+            }
+        }
+    }
+}
