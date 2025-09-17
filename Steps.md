@@ -106,7 +106,10 @@ order-service/
 ### And inside each → Jenkinsfile
 ---
 ## 🧩 STEP 8: Jenkinsfile Template
-### Inside auth-service/Jenkinsfile (repeat for product & order by changing SERVICE_NAME):
+### Inside auth-service/Jenkinsfile (repeat for product-service & order-service by changing SERVICE_NAME):
+auth-service/Jenkinsfile
+product-service/Jenkinsfile
+order-service/Jenkinsfile
 ```bash
 pipeline {
     agent any
