@@ -18,23 +18,23 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh '''
-                    echo "🔨 Building Docker image..."
-                    docker build -t $DOCKER_IMAGE ./$SERVICE_NAME
-                '''
-            }
-        }
-
-        stage('Push to Docker Hub') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-pass', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                    sh '''
-                        echo "🔐 Logging in to Docker Hub..."
-                        echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-                        echo "🚀 Pushing Docker image..."
-                        docker push $DOCKER_IMAGE
-                    '''
+                script {
+                    if (isUnix()) {
+                        sh '''
+                            set -e
+                            echo "🔨 Building Docker image..."
+                            docker build --pull --no-cache -t $DOCKER_IMAGE ./$SERVICE_NAME
+                            docker build -t $DOCKER_IMAGE:latest ./$SERVICE_NAME
+                        '''
+                    } else {
+                        bat '''
+                            echo "🔨 Building Docker image..."
+                            docker build --pull --no-cache -t %DOCKER_IMAGE% .\\%SERVICE_NAME%
+                            docker build -t %DOCKER_IMAGE%:latest .\\%SERVICE_NAME%
+                        '''
+                    }
                 }
+                echo "✅ Docker image built: $DOCKER_IMAGE"
             }
         }
             
