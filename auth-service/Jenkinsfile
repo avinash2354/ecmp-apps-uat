@@ -18,11 +18,12 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh '''
-                    echo "🔨 Building Docker  image..."
+                    echo  "🔨 Building Docker image..."
                     docker build -t $DOCKER_IMAGE ./$SERVICE_NAME
                 '''
             }
         }
+
         stage('Push to Docker Hub') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-pass', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
