@@ -27,13 +27,11 @@ pipeline {
             steps {
                 script {
                    withCredentials([string(credentialsId: 'dockerHubPassword', variable: 'dockerhub-pass')]) {
-                        sh "docker login -u avinash8476 -p ${env.dockerHubPassword}"
-                        sh "docker push ${DOCKER_IMAGE}"
-                        sh "docker logout" // Optional, but good practice
+                    sh 'echo $dockerhub-pass | docker login -u avinash8476 --password-stdin'
+                    sh "docker push ${DOCKER_IMAGE}"
                     }
                 }
             }
         }
     }
 }
-
