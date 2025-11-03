@@ -4,9 +4,6 @@ pipeline {
     environment {
         SERVICE_NAME = 'auth-service'   // change for product-service / order-service
         DOCKER_USERNAME = 'avinash8476'
-        DOCKER_USER = 'avinashshinde8476@gmail.com'
-        //DOCKER_PASS = "AV!na$h#8051"
-
         DOCKER_IMAGE = "${DOCKER_USERNAME}/${SERVICE_NAME}:${BUILD_NUMBER}"
     }
 
