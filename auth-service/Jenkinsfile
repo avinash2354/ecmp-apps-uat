@@ -26,12 +26,10 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
-                   withCredentials([string(credentialsId: 'dockerHubPassword', variable: 'dockerhub-pass')]) {
-                    sh 'echo $dockerhub-pass | docker login -u avinash8476 --password-stdin'
+                    sh " docker login -u avinash8476 -p AV!na$h#8051' "
                     sh "docker push ${DOCKER_IMAGE}"
                     }
                 }
             }
         }
-    }
 }
