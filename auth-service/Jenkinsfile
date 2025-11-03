@@ -26,7 +26,7 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    sh " docker login -u avinash8476 -p AV!na$h#8051' "
+                    sh " docker login -u avinash8476 -p Avinash8051 "
                     sh "docker push ${DOCKER_IMAGE}"
                     }
                 }
