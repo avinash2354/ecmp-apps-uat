@@ -3,7 +3,10 @@ pipeline {
 
     environment {
         SERVICE_NAME = 'auth-service'   // change for product-service / order-service
-        DOCKER_USERNAME = 'avinashshinde8476@gmail.com'
+        DOCKER_USERNAME = 'avinash8476'
+        DOCKER_USER = "avinashshinde8476@gmail.com"
+        DOCKER_PASS = "AV!na$h#8051"
+
         DOCKER_IMAGE = "${DOCKER_USERNAME}/${SERVICE_NAME}:${BUILD_NUMBER}"
     }
 
@@ -27,7 +30,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-pass', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh '''
-                        echo "🔐 Logging in to Docker  Hub..."
+                        echo "🔐 Logging in to Docker Hub..."
                         echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
                         echo "🚀 Pushing Docker image..."
                         docker push $DOCKER_IMAGE
