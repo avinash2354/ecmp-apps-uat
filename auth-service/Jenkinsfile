@@ -33,7 +33,7 @@ pipeline {
                         '''
             }
         }
-    }
+    
 
 
     post {
@@ -45,3 +45,4 @@ pipeline {
         }
     }
 }   
+}
