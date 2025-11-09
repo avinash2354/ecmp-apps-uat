@@ -33,6 +33,14 @@ pipeline {
                 sh "docker push ${DOCKER_IMAGE}"
             }
         }   
-    } 
+    }
+     stage('Save Docker Image to Local Storage') {
+            steps {
+                script {
+                    sh "docker save -o ${SERVICE_NAME}-${BUILD_NUMBER}.tar ${DOCKER_IMAGE}"
+                    echo "Docker image saved to ${SERVICE_NAME}-${BUILD_NUMBER}.tar"
+                }
+            }
+        }
     }
 }
