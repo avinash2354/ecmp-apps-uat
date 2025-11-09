@@ -18,20 +18,12 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker --version'
                     docker.build("${DOCKER_IMAGE}", "./${SERVICE_NAME}") 
                     echo "Docker image built successfully"
                 }
             }
         }    
     }
-    post {
-        success {
-            echo 'Pipeline completed successfully!'
-        }
-        failure {
-            echo 'Pipeline failed. Please check the logs.'
-        }
-    }
+
 }
 
