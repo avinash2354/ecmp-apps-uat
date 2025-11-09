@@ -24,19 +24,7 @@ pipeline {
                 }
             }
         }    
-     stage('Push to Docker Hub') {
-    steps {
-            sh '''
-                       sh echo "docker --version"
-                       sh echo "docker images
-                        echo "✅ Docker image pushed successfully!"
-                        '''
-            }
-        }
-    }
-
-
-    post {
+         post {
         success {
             echo 'Pipeline completed successfully!'
         }
@@ -44,5 +32,6 @@ pipeline {
             echo 'Pipeline failed. Please check the logs.'
         }
     }
-    
 }
+}
+
