@@ -22,18 +22,7 @@ pipeline {
                     echo "Docker image built successfully"
                 }
             }
-        }
-
-        stage('Push to Docker Hub') {
-            steps {
-                script { 
-                withCredentials([string(credentialsId: 'DOCKER_PASS', variable: 'DOCKER_PASS')]) {
-                    sh 'docker login -u avinash8476 -p $(DOCKER_PASS)'
-                }
-                sh "docker push ${DOCKER_IMAGE}"
-            }
-        }   
-    }
+        }    
      stage('Save Docker Image to Local Storage') {
             steps {
                 script {
