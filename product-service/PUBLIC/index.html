@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Product Service</title>
@@ -7,61 +8,223 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      background: #f5f5f5;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: #333;
+      min-height: 100vh;
     }
+
     header {
-      background-color: #0077cc;
-      color: white;
-      padding: 15px 30px;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #333;
+      padding: 20px 30px;
       text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #4a4a4a;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      color: #666;
+    }
+
     .container {
-      padding: 30px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
     }
+
     .product {
       background: white;
-      margin-bottom: 20px;
       padding: 20px;
-      border-radius: 6px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      background-color: #f9f9f9;
+      padding: 10px;
+    }
+
     .product h3 {
-      margin-top: 0;
+      margin: 10px 0;
+      font-size: 1.2em;
+      color: #2c3e50;
     }
+
+    .product p {
+      font-size: 0.95em;
+      color: #555;
+      margin-bottom: 10px;
+      flex-grow: 1;
+    }
+
+    .price {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #e74c3c;
+      margin-top: auto;
+    }
+
     footer {
-      background: #0077cc;
+      background: rgba(0, 0, 0, 0.8);
       color: white;
       text-align: center;
-      padding: 10px;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
+      padding: 20px;
+      margin-top: 40px;
     }
   </style>
 </head>
+
 <body>
 
   <header>
     <h1>🛍️ Product Service</h1>
-    <p>Browse and manage available products</p>
+    <p>Discover our premium collection of tech gadgets</p>
   </header>
 
   <div class="container">
+    <!-- Existing Products -->
     <div class="product">
+      <img src="images/wireless_mouse.png" alt="Wireless Mouse">
       <h3>Wireless Mouse</h3>
       <p>High-precision ergonomic mouse for all-day use.</p>
-      <p><strong>Price:</strong> ₹899</p>
+      <div class="price">₹899</div>
     </div>
     <div class="product">
+      <img src="images/mechanical_keyboard.png" alt="Mechanical Keyboard">
       <h3>Mechanical Keyboard</h3>
       <p>Clicky switches for speed and responsiveness.</p>
-      <p><strong>Price:</strong> ₹2499</p>
+      <div class="price">₹2499</div>
     </div>
     <div class="product">
+      <img src="images/usbc_cable.png" alt="USB-C Charging Cable">
       <h3>USB-C Charging Cable</h3>
       <p>Durable and fast-charging 1.5m cable.</p>
-      <p><strong>Price:</strong> ₹299</p>
+      <div class="price">₹299</div>
+    </div>
+    <div class="product">
+      <img src="images/headphones.png" alt="Noise Cancelling Headphones">
+      <h3>Noise Cancelling Headphones</h3>
+      <p>Immersive sound with active noise cancellation.</p>
+      <div class="price">₹14999</div>
+    </div>
+    <div class="product">
+      <img src="images/monitor.png" alt="4K Monitor">
+      <h3>4K Monitor</h3>
+      <p>Stunning 27-inch display for creative work.</p>
+      <div class="price">₹24999</div>
+    </div>
+    <div class="product">
+      <img src="images/webcam.png" alt="Webcam">
+      <h3>Webcam</h3>
+      <p>1080p HD webcam for crystal clear video calls.</p>
+      <div class="price">₹3999</div>
+    </div>
+    <div class="product">
+      <img src="images/smart_watch.png" alt="Smart Watch">
+      <h3>Smart Watch</h3>
+      <p>Track your fitness and stay connected on the go.</p>
+      <div class="price">₹4999</div>
+    </div>
+    <div class="product">
+      <img src="images/drone.png" alt="Drone">
+      <h3>Drone</h3>
+      <p>Capture stunning aerial footage with this compact drone.</p>
+      <div class="price">₹19999</div>
+    </div>
+    <div class="product">
+      <img src="images/vr_headset.png" alt="VR Headset">
+      <h3>VR Headset</h3>
+      <p>Experience immersive virtual reality worlds.</p>
+      <div class="price">₹29999</div>
+    </div>
+
+    <!-- New Products -->
+    <div class="product">
+      <img src="images/gaming_laptop.png" alt="Gaming Laptop">
+      <h3>Gaming Laptop</h3>
+      <p>High-performance laptop for gaming and creation.</p>
+      <div class="price">₹89999</div>
+    </div>
+    <div class="product">
+      <img src="images/tablet.png" alt="Tablet">
+      <h3>Tablet</h3>
+      <p>Versatile tablet for work and play.</p>
+      <div class="price">₹29999</div>
+    </div>
+    <div class="product">
+      <img src="images/bluetooth_speaker.png" alt="Bluetooth Speaker">
+      <h3>Bluetooth Speaker</h3>
+      <p>Portable speaker with powerful 360° sound.</p>
+      <div class="price">₹3499</div>
+    </div>
+    <div class="product">
+      <img src="images/external_ssd.png" alt="External SSD">
+      <h3>External SSD</h3>
+      <p>Fast and reliable storage for your data.</p>
+      <div class="price">₹7999</div>
+    </div>
+    <div class="product">
+      <img src="images/graphics_card.png" alt="Graphics Card">
+      <h3>Graphics Card</h3>
+      <p>Next-gen graphics for ultimate gaming performance.</p>
+      <div class="price">₹45999</div>
+    </div>
+    <div class="product">
+      <img src="images/smart_home_hub.png" alt="Smart Home Hub">
+      <h3>Smart Home Hub</h3>
+      <p>Control your smart home devices with voice.</p>
+      <div class="price">₹4999</div>
+    </div>
+    <div class="product">
+      <img src="images/action_camera.png" alt="Action Camera">
+      <h3>Action Camera</h3>
+      <p>Capture your adventures in 4K.</p>
+      <div class="price">₹24999</div>
+    </div>
+    <div class="product">
+      <img src="images/e_reader.png" alt="E-Reader">
+      <h3>E-Reader</h3>
+      <p>Read thousands of books on a glare-free screen.</p>
+      <div class="price">₹9999</div>
+    </div>
+    <div class="product">
+      <img src="images/power_bank.png" alt="Power Bank">
+      <h3>Power Bank</h3>
+      <p>Keep your devices charged on the go.</p>
+      <div class="price">₹1999</div>
+    </div>
+    <div class="product">
+      <img src="images/wireless_charger.png" alt="Wireless Charger">
+      <h3>Wireless Charger</h3>
+      <p>Convenient wireless charging for your phone.</p>
+      <div class="price">₹1499</div>
     </div>
   </div>
 
@@ -70,4 +233,5 @@
   </footer>
 
 </body>
+
 </html>

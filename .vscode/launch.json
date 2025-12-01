@@ -1,0 +1,55 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open Product Service",
+            "file": "${workspaceFolder}/product-service/PUBLIC/index.html"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open Auth Service",
+            "file": "${workspaceFolder}/auth-service/PUBLIC/index.html"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open Order Service",
+            "file": "${workspaceFolder}/order-service/PUBLIC/index.html"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open Current File",
+            "file": "${file}"
+        },
+        {
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "request": "attach",
+            "type": "chrome",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Connect to server",
+            "type": "go",
+            "request": "attach",
+            "mode": "remote",
+            "remotePath": "${workspaceFolder}",
+            "port": 2345,
+            "host": "127.0.0.1"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Run All Services",
+            "configurations": [
+                "Open Product Service",
+                "Open Auth Service",
+                "Open Order Service"
+            ]
+        }
+    ]
+}
