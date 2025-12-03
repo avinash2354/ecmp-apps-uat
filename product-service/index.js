@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 3003;
+const PORT = 303;
 
 app.use(express.static('PUBLIC'));
 
