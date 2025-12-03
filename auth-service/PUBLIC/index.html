@@ -59,6 +59,26 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
+
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
   </style>
 </head>
 
@@ -66,21 +86,28 @@
 
   <div class="navbar">
     <div class="logo">Flipkart</div>
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="history.back()">← Back</button>
+      <button class="nav-btn" onclick="history.forward()">Forward →</button>
+    </div>
     <div class="search">
       <input type="text" placeholder="Search for products, brands and more">
     </div>
   </div>
 
   <div class="container">
-    <div class="product clickable" onclick="window.location.href='http://localhost:3002'">
+    <div class="product clickable"
+      onclick="window.location.href='file:///C:/Users/OM/Documents/google_antigravity/ecmp-apps-uat/product-service/PUBLIC/index.html'">
       <h2>Smartphone</h2>
       <p>Get the latest smartphone at best price.</p>
     </div>
-    <div class="product clickable" onclick="window.location.href='http://localhost:3002'">
+    <div class="product clickable"
+      onclick="window.location.href='file:///C:/Users/OM/Documents/google_antigravity/ecmp-apps-uat/product-service/PUBLIC/index.html'">
       <h2>Laptop</h2>
       <p>Best laptops for gaming and productivity.</p>
     </div>
-    <div class="product clickable" onclick="window.location.href='http://localhost:3003'">
+    <div class="product clickable"
+      onclick="window.location.href='file:///C:/Users/OM/Documents/google_antigravity/ecmp-apps-uat/order-service/PUBLIC/index.html'">
       <h2>Headphones</h2>
       <p>Enjoy high-quality audio with great offers.</p>
     </div>

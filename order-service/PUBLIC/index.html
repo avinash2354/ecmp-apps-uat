@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Order Service - Flipkart Clone</title>
@@ -9,6 +10,7 @@
       margin: 0;
       background: #f1f3f6;
     }
+
     .navbar {
       background-color: #2874f0;
       color: white;
@@ -17,34 +19,64 @@
       justify-content: space-between;
       align-items: center;
     }
+
     .navbar .logo {
       font-size: 24px;
       font-weight: bold;
     }
+
     .container {
       padding: 20px;
     }
+
     .order {
       background: white;
       padding: 15px;
       margin-bottom: 10px;
       border-radius: 4px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
+
     .order h2 {
       margin: 0;
       color: #333;
     }
+
     .order p {
       margin: 5px 0 0;
       color: #555;
     }
+
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
   </style>
 </head>
+
 <body>
 
   <div class="navbar">
     <div class="logo">Order Service</div>
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="history.back()">← Back</button>
+      <button class="nav-btn" onclick="history.forward()">Forward →</button>
+    </div>
   </div>
 
   <div class="container">
@@ -65,4 +97,5 @@
     </div>
   </div>
 </body>
+
 </html>

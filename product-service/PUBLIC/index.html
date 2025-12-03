@@ -98,12 +98,43 @@
       padding: 20px;
       margin-top: 40px;
     }
+
+    .nav-buttons {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      background: #667eea;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 5px rgba(102, 126, 234, 0.4);
+    }
+
+    .nav-btn:hover {
+      background: #764ba2;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(118, 75, 162, 0.4);
+    }
   </style>
 </head>
 
 <body>
 
   <header>
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="history.back()">← Back</button>
+      <button class="nav-btn" onclick="history.forward()">Forward →</button>
+    </div>
     <h1>🛍️ Product Service</h1>
     <p>Discover our premium collection of tech gadgets</p>
   </header>
@@ -164,8 +195,6 @@
       <p>Experience immersive virtual reality worlds.</p>
       <div class="price">₹29999</div>
     </div>
-
-    <!-- New Products -->
     <div class="product">
       <img src="images/gaming_laptop.png" alt="Gaming Laptop">
       <h3>Gaming Laptop</h3>
@@ -225,6 +254,128 @@
       <h3>Wireless Charger</h3>
       <p>Convenient wireless charging for your phone.</p>
       <div class="price">₹1499</div>
+    </div>
+
+    <!-- Additional 20 Products -->
+    <div class="product">
+      <img src="images/wireless_earbuds.png" alt="Wireless Earbuds">
+      <h3>Wireless Earbuds</h3>
+      <p>Premium sound quality with active noise cancellation.</p>
+      <div class="price">₹5999</div>
+    </div>
+    <div class="product">
+      <img src="images/portable_projector.png" alt="Portable Projector">
+      <h3>Portable Projector</h3>
+      <p>Compact projector for presentations and entertainment.</p>
+      <div class="price">₹12999</div>
+    </div>
+    <div class="product">
+      <img src="images/gaming_controller.png" alt="Gaming Controller">
+      <h3>Gaming Controller</h3>
+      <p>Wireless controller with RGB lighting and haptic feedback.</p>
+      <div class="price">₹3499</div>
+    </div>
+    <div class="product">
+      <img src="images/usb_microphone.png" alt="USB Microphone">
+      <h3>USB Microphone</h3>
+      <p>Professional podcasting microphone with studio quality.</p>
+      <div class="price">₹6999</div>
+    </div>
+    <div class="product">
+      <img src="images/ring_light.png" alt="Ring Light">
+      <h3>Ring Light</h3>
+      <p>Adjustable LED ring light for photography and streaming.</p>
+      <div class="price">₹2999</div>
+    </div>
+    <div class="product">
+      <img src="images/laptop_cooling_pad.png" alt="Laptop Cooling Pad">
+      <h3>Laptop Cooling Pad</h3>
+      <p>RGB cooling pad with multiple fans for optimal performance.</p>
+      <div class="price">₹1999</div>
+    </div>
+    <div class="product">
+      <img src="images/drawing_tablet.png" alt="Drawing Tablet">
+      <h3>Drawing Tablet</h3>
+      <p>Professional graphics tablet for digital artists.</p>
+      <div class="price">₹8999</div>
+    </div>
+    <div class="product">
+      <img src="images/security_camera.png" alt="Security Camera">
+      <h3>Security Camera</h3>
+      <p>Smart security camera with night vision and motion detection.</p>
+      <div class="price">₹4499</div>
+    </div>
+    <div class="product">
+      <img src="images/fitness_tracker.png" alt="Fitness Tracker">
+      <h3>Fitness Tracker</h3>
+      <p>Track your health metrics and daily activities.</p>
+      <div class="price">₹2499</div>
+    </div>
+    <div class="product">
+      <img src="images/portable_hdd.png" alt="Portable HDD">
+      <h3>Portable HDD</h3>
+      <p>2TB external hard drive for reliable data storage.</p>
+      <div class="price">₹5499</div>
+    </div>
+    <div class="product">
+      <img src="images/gaming_mousepad.png" alt="Gaming Mousepad">
+      <h3>Gaming Mousepad</h3>
+      <p>Extended RGB mousepad with smooth surface.</p>
+      <div class="price">₹1299</div>
+    </div>
+    <div class="product">
+      <img src="images/phone_gimbal.png" alt="Phone Gimbal">
+      <h3>Phone Gimbal</h3>
+      <p>3-axis stabilizer for smooth smartphone videos.</p>
+      <div class="price">₹7999</div>
+    </div>
+    <div class="product">
+      <img src="images/charging_dock.png" alt="Charging Dock">
+      <h3>Charging Dock</h3>
+      <p>Multi-device wireless charging station.</p>
+      <div class="price">₹3999</div>
+    </div>
+    <div class="product">
+      <img src="images/wifi_router.png" alt="WiFi Router">
+      <h3>WiFi Router</h3>
+      <p>High-speed gaming router with advanced features.</p>
+      <div class="price">₹9999</div>
+    </div>
+    <div class="product">
+      <img src="images/portable_ssd_2.png" alt="Portable SSD 1TB">
+      <h3>Portable SSD 1TB</h3>
+      <p>Ultra-fast 1TB portable solid state drive.</p>
+      <div class="price">₹10999</div>
+    </div>
+    <div class="product">
+      <img src="images/mechanical_numpad.png" alt="Mechanical Numpad">
+      <h3>Mechanical Numpad</h3>
+      <p>RGB mechanical numeric keypad for productivity.</p>
+      <div class="price">₹1799</div>
+    </div>
+    <div class="product">
+      <img src="images/laptop_stand.png" alt="Laptop Stand">
+      <h3>Laptop Stand</h3>
+      <p>Adjustable aluminum laptop stand for better ergonomics.</p>
+      <div class="price">₹2499</div>
+    </div>
+    <div class="product">
+      <img src="images/desk_lamp.png" alt="Desk Lamp">
+      <h3>Desk Lamp</h3>
+      <p>LED desk lamp with wireless charging base.</p>
+      <div class="price">₹3499</div>
+    </div>
+    <div class="product">
+      <img src="images/cable_organizer.png" alt="Cable Organizer">
+      <h3>Cable Organizer</h3>
+      <p>Cable management box for a clean workspace.</p>
+      <div class="price">₹899</div>
+    </div>
+    <div class="product">
+      <img src="images/usb_hub.png" alt="USB Hub">
+      <h3>USB Hub</h3>
+      <p>Multi-port USB-C hub with HDMI and card reader.</p>
+      <div class="price">₹2999</div>
     </div>
   </div>
 
