@@ -17,7 +17,7 @@ spec:
       containers:
       - name: node-app
         # IMPORTANT: Replace this with your actual built image (e.g., myuser/node-app:v1)
-        image: avinash8476/order-service:11
+        image: avinash8476/order-service:12
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 30082 
