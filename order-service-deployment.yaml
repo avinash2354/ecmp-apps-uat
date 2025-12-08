@@ -22,12 +22,12 @@ spec:
         ports:
         - containerPort: 30082 
         resources:
-          limits:
-            memory: "512Mi"
-            cpu: "50m"
           requests:
-            memory: "256Mi"
-            cpu: "25m"
+            memory: "64Mi"   # Enough for the container to start
+            cpu: "10m"       # 1/100th of a core (sufficient for idle/low traffic)
+          limits:
+            memory: "128Mi"  # Hard cap to prevent memory leaks affecting node
+            cpu: "50m"
         env:
         - name: NODE_ENV
           value: "production"
