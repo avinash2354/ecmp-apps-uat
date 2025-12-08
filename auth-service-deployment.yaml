@@ -20,7 +20,7 @@ spec:
         image: avinash8476/auth-service:109
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 301 # Matches the EXPOSE 3001 from your Dockerfile
+        - containerPort: 30081 # Matches the EXPOSE 3001 from your Dockerfile
         resources:
           limits:
             memory: "512Mi"
@@ -45,5 +45,5 @@ spec:
   ports:
     - protocol: TCP
       port: 30081       # Port accessible on the Service
-      targetPort: 301 # Port the container is listening on (matches EXPOSE)
-      nodePort: 30081
+      targetPort: 30081 # Port the container is listening on (matches EXPOSE)
+      nodePort: 30091

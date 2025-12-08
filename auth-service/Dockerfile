@@ -2,6 +2,11 @@ FROM node:18-alpine
 WORKDIR /app
 COPY . .
 RUN npm install
-EXPOSE 30081  
+EXPOSE 30081
+EXPOSE 30091
+EXPOSE 80
+EXPOSE 443
+EXPOSE 8080 
+EXPOSE 30011 
 CMD ["node", "index.js"]
 

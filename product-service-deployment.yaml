@@ -20,7 +20,7 @@ spec:
         image: avinash8476/product-service:8
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 303 
+        - containerPort: 30083 
         resources:
           limits:
             memory: "512Mi"
@@ -44,5 +44,6 @@ spec:
   type: LoadBalancer # Exposes the service externally (use ClusterIP for internal only)
   ports:
     - protocol: TCP
-      port: 303       # Port accessible on the Service
-      targetPort: 303 # Port the container is listening on (matches EXPOSE)
+      port: 30083       # Port accessible on the Service
+      targetPort: 30083 # Port the container is listening on (matches EXPOSE)
+      nodePort: 30093
