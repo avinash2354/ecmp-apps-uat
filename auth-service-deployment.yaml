@@ -17,7 +17,7 @@ spec:
       containers:
       - name: node-app
         # IMPORTANT: Replace this with your actual built image (e.g., myuser/node-app:v1)
-        image: avinash8476/auth-service:109
+        image: avinash8476/auth-service:111
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 30081 # Matches the EXPOSE 3001 from your Dockerfile
