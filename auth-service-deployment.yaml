@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-service-node-app-deployment
+  labels:
+    app: node-app
+spec:
+  replicas: 2 # Sets the number of pod instances to run
+  selector:
+    matchLabels:
+      app: node-app
+  template:
+    metadata:
+      labels:
+        app: node-app
+    spec:
+      containers:
+      - name: node-app
+        # IMPORTANT: Replace this with your actual built image (e.g., myuser/node-app:v1)
+        image: avinash8476/auth-service:109
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 301 # Matches the EXPOSE 3001 from your Dockerfile
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "50m"
+          requests:
+            memory: "256Mi"
+            cpu: "25m"
+        env:
+        - name: NODE_ENV
+          value: "production"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-app-service301
+spec:
+  selector:
+    app: node-app
+  type: LoadBalancer # Exposes the service externally (use ClusterIP for internal only)
+  ports:
+    - protocol: TCP
+      port: 30081       # Port accessible on the Service
+      targetPort: 301 # Port the container is listening on (matches EXPOSE)
+      nodePort: 30081

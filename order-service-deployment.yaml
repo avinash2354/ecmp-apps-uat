@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service-node-app-deployment
+  labels:
+    app: node-app
+spec:
+  replicas: 2 # Sets the number of pod instances to run
+  selector:
+    matchLabels:
+      app: node-app
+  template:
+    metadata:
+      labels:
+        app: node-app
+    spec:
+      containers:
+      - name: node-app
+        # IMPORTANT: Replace this with your actual built image (e.g., myuser/node-app:v1)
+        image: avinash8476/order-service:9
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 302 
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "50m"
+          requests:
+            memory: "256Mi"
+            cpu: "25m"
+        env:
+        - name: NODE_ENV
+          value: "production"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-app-service-302
+spec:
+  selector:
+    app: node-app
+  type: LoadBalancer # Exposes the service externally (use ClusterIP for internal only)
+  ports:
+    - protocol: TCP
+      port: 302       # Port accessible on the Service
+      targetPort: 302 # Port the container is listening on (matches EXPOSE)
