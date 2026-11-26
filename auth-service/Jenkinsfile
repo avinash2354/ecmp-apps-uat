@@ -26,5 +26,20 @@ pipeline {
                 }
             }
         }
-    }
-}
+        stage('Push Image to Docker Hub') {
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub-creds',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+                )]) {
+                    sh '''
+                        echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                        docker push avinash8476/auth-service:${BUILD_NUMBER}
+                        docker push avinash8476/auth-service:latest
+                    '''
+                } // closes withCredentials
+            }     // closes steps
+        }         // closes stage
+    }             // closes stages
+}                 // closes pipeline
