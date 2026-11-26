@@ -36,7 +36,7 @@ pipeline {
                     sh '''
                         echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
                         docker push avinash8476/auth-service:${BUILD_NUMBER}
-                        docker push avinash8476/auth-service:latest
+                       docker logout
                     '''
                 } // closes withCredentials
             }     // closes steps
